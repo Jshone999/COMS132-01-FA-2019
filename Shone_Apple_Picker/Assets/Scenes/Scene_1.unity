@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 5041447795115486895, guid: 21683336b8f9a744e91ce137d88bcfa5,
         type: 3}
       propertyPath: speed
-      value: 13.5
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5041447795115486895, guid: 21683336b8f9a744e91ce137d88bcfa5,
         type: 3}
@@ -369,5 +369,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2886068555107158919, guid: 6a12b0a3e0cffba43ab08920b02ce98e,
         type: 3}
+    - target: {fileID: 5041447795115486895, guid: 21683336b8f9a744e91ce137d88bcfa5,
+        type: 3}
+      propertyPath: secondsBetweenAppleDrops
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21683336b8f9a744e91ce137d88bcfa5, type: 3}

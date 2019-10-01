@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Apple : MonoBehaviour
 {
+    [Header("Apple")]
+ 
     public static float bottomY = -20f;
 
     void Start()
@@ -16,6 +18,9 @@ public class Apple : MonoBehaviour
         if (transform.position.y < bottomY)
         {
             Destroy(this.gameObject);
+
+            Apple_Picker apScript = Camera.main.GetComponent<Apple_Picker>();
+            apScript.AppleDestroyed();
         }
     }
 }
