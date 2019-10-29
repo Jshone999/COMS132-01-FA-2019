@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
   - component: {fileID: 534669907}
+  - component: {fileID: 534669908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -478,6 +479,33 @@ MonoBehaviour:
   cloudScaleMin: 1
   cloudScaleMax: 3
   cloudSpeedMult: 0.5
+--- !u!114 &534669908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2220601f144b55458bbd87194e14af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uitLevel: {fileID: 866925261}
+  uitShots: {fileID: 1786579254}
+  uitButton: {fileID: 708548427}
+  castlePos: {x: 50, y: -9.5, z: 0}
+  castles:
+  - {fileID: 1043401227952988042, guid: 4aca6518583a0b743abe774aef618b34, type: 3}
+  - {fileID: 1043401227952988042, guid: 8cfe0845bff21cd4f981ce5097db9318, type: 3}
+  - {fileID: 1043401227952988042, guid: 465262006b3265b4abb9374bf630ef49, type: 3}
+  - {fileID: 1043401227952988042, guid: e86561ad089973d4d8d091c6e7b22a7e, type: 3}
+  level: 0
+  levelMax: 0
+  shotsTaken: 0
+  castle: {fileID: 0}
+  mode: 0
+  showing: Show Slingshot
 --- !u!1 &576138431
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +574,7 @@ MonoBehaviour:
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 7375680486911822873, guid: 40093bae0be8f7649b22bf6fb1252fd5,
     type: 3}
-  aimingMode: 1
+  aimingMode: 0
 --- !u!1 &643996173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1047,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188622939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 534669908}
+        m_MethodName: SwitchView
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1188622939

@@ -11,6 +11,7 @@ public class Goal : MonoBehaviour
         if (other.gameObject.tag == "Projectile")
         {
             Goal.goalMet = true;
+            FollowCam.shotTime = 0;
             Material mat = GetComponent<Renderer>().material;
             Color c = mat.color;
             c.a = 1;

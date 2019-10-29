@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowCam : MonoBehaviour
 {
     static public GameObject POI;
+    static public float shotTime;
 
     [Header("Set in Inspector")]
     public float easing = 0.05f;
@@ -33,8 +34,16 @@ public class FollowCam : MonoBehaviour
 
             if (POI.tag == "Projectile")
             {
+                shotTime += Time.deltaTime;
                 if (POI.GetComponent<Rigidbody>().IsSleeping())
                 {
+                    shotTime = 0;
+                    POI = null;
+                    return;
+                }
+                else if (shotTime >= 6)
+                {
+                    shotTime = 0;
                     POI = null;
                     return;
                 }
@@ -46,6 +55,6 @@ public class FollowCam : MonoBehaviour
         destination = Vector3.Lerp(transform.position, destination, easing);
         destination.z = camZ;
         transform.position = destination;
-        destination.x = Mathf.Max(minXY.x, destination.x);
+        Camera.main.orthographicSize = destination.y + 10;
     }
 }
