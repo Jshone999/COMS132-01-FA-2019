@@ -15,8 +15,11 @@ public class Slingshot : MonoBehaviour
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
+    public GameObject projectileLine;
 
     private Rigidbody projectileRigidbody;
+
+
 
     static public Vector3 LAUNCH_POS
     {
@@ -50,11 +53,11 @@ public class Slingshot : MonoBehaviour
 
     void OnMouseDown()
     {
-        aimingMode = true;
-        projectile = Instantiate(prefabProjectile) as GameObject;
-        projectile.transform.position = launchPos;
-        projectileRigidbody = projectile.GetComponent<Rigidbody>();
-        projectileRigidbody.isKinematic = true;
+            aimingMode = true;
+            projectile = Instantiate(projectile) as GameObject;
+            projectile.transform.position = launchPos;
+            projectileRigidbody = projectile.GetComponent<Rigidbody>();
+            projectileRigidbody.isKinematic = true;
     }
 
     void Update()
@@ -77,17 +80,47 @@ public class Slingshot : MonoBehaviour
         Vector3 projPos = launchPos + mouseDelta;
         projectile.transform.position = projPos;
 
+
         if (Input.GetMouseButtonUp(0))
         {
             aimingMode = false;
             projectileRigidbody.isKinematic = false;
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
-            projectile = null;
+            //projectile = null;
             MissionDemolition.ShotFired();
             ProjectileLine.S.poi = projectile;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            projectile.GetComponentInChildren<Renderer>().material.color = Color.red;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.mass = 7;
+            projectileLine.GetComponentInChildren<Renderer>().material.color = Color.red;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            projectile.GetComponentInChildren<Renderer>().material.color = Color.blue;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            projectileLine.GetComponentInChildren<Renderer>().material.color = Color.blue;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            projectile.GetComponentInChildren<Renderer>().material.color = Color.green;
+            Transform rb = projectile.GetComponent<Transform>();
+            Vector3 scale = new Vector3(5, 5, 5);
+            rb.localScale = scale;
+            projectileLine.GetComponentInChildren<Renderer>().material.color = Color.green;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            projectile.GetComponentInChildren<Renderer>().material.color = Color.magenta;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.mass = 3;
+            projectileLine.GetComponentInChildren<Renderer>().material.color = Color.magenta;
+            
+        }
     }
+
 }

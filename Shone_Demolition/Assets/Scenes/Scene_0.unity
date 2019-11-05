@@ -575,6 +575,7 @@ MonoBehaviour:
   projectile: {fileID: 7375680486911822873, guid: 40093bae0be8f7649b22bf6fb1252fd5,
     type: 3}
   aimingMode: 0
+  projectileLine: {fileID: 870506709}
 --- !u!1 &643996173
 GameObject:
   m_ObjectHideFlags: 0
